@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dcuekc621wcb3"]
+[gd_scene load_steps=17 format=4 uid="uid://dcuekc621wcb3"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://test.svg" id="1_hproo"]
 [ext_resource type="Texture2D" uid="uid://cj0774417fca1" path="res://lava.png" id="2_26dk1"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://chi6kbsmfckpe" path="res://Win.png" id="5_gfyxx"]
 [ext_resource type="Texture2D" uid="uid://bropg4lxhbxu5" path="res://enemy.png" id="6_mb3x2"]
 [ext_resource type="Script" uid="uid://cxnll5d4cgc2p" path="res://Scripts/door.gd" id="7_02esc"]
+[ext_resource type="Script" uid="uid://f17c4xo7ngep" path="res://Scripts/door2.gd" id="8_gfyxx"]
+[ext_resource type="Script" uid="uid://dcwo4o4mq3s7r" path="res://Scripts/door3.gd" id="9_xfwg7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_055b2"]
 texture = ExtResource("1_hproo")
@@ -353,8 +355,8 @@ scale = Vector2(0.48437512, 0.09374999)
 texture = ExtResource("1_hproo")
 
 [node name="Door2" type="StaticBody2D" parent="."]
-position = Vector2(-48, 105)
-script = ExtResource("7_02esc")
+position = Vector2(-48, 106)
+script = ExtResource("8_gfyxx")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
@@ -368,7 +370,7 @@ texture = ExtResource("1_hproo")
 [node name="Door3" type="StaticBody2D" parent="."]
 position = Vector2(-70, -93)
 rotation = 1.5707964
-script = ExtResource("7_02esc")
+script = ExtResource("9_xfwg7")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door3"]
@@ -382,4 +384,6 @@ texture = ExtResource("1_hproo")
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="key1" to="Door1" method="_on_key_body_entered"]
 [connection signal="body_entered" from="key2" to="Door1" method="_on_key_body_entered"]
+[connection signal="body_entered" from="key2" to="Door2" method="_on_key_2_body_entered"]
 [connection signal="body_entered" from="key3" to="Door1" method="_on_key_body_entered"]
+[connection signal="body_entered" from="key3" to="Door3" method="_on_key_3_body_entered"]

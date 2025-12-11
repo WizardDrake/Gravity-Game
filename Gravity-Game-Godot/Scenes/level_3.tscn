@@ -303,4 +303,11 @@ texture = ExtResource("5_l4wr6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_t7v2y")
 
+[node name="Label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = -40.0
+offset_right = 87.0
+offset_bottom = -17.0
+text = "R to restart"
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -303,4 +303,11 @@ position = Vector2(1.9073486e-06, -1.9073486e-06)
 scale = Vector2(0.15625, 0.15625)
 texture = ExtResource("4_r0nac")
 
+[node name="Label" type="Label" parent="."]
+offset_left = -52.0
+offset_top = -40.0
+offset_right = 72.0
+offset_bottom = -14.0
+text = "WASD to move"
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

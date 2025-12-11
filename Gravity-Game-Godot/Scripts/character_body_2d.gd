@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 @export var speed = 200
+@export var grapple = false
 
 var _platform_velocity: Vector2 = Vector2.ZERO
-
+signal restart
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("a"):
@@ -18,6 +19,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("s"):
 		if velocity == Vector2.ZERO:
 			velocity = Vector2(0, 1)
+	if Input.is_action_pressed("r"):
+		die()
+	if Input.is_action_pressed("space"):
+		if grapple == true:
+			velocity = Vector2.ZERO
+	
 	velocity *= speed
 	move_and_slide()
 	velocity /= speed
@@ -31,6 +38,8 @@ func _physics_process(delta: float) -> void:
 func die():
 	global_position = Vector2(0, 0)
 	velocity = Vector2.ZERO
+	grapple = false
+	restart.emit()
 func check_lava_collision() -> void:
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
@@ -38,3 +47,7 @@ func check_lava_collision() -> void:
 			var collider = collision.get_collider()
 			if collider and collider.is_in_group("lava"):
 				die()
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	grapple = true

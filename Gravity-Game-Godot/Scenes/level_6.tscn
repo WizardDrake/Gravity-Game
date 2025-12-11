@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://test.svg" id="1_rkygx"]
 [ext_resource type="Texture2D" uid="uid://cj0774417fca1" path="res://lava.png" id="2_b33os"]
 [ext_resource type="PackedScene" uid="uid://df6fcmphjfr0m" path="res://Scenes/Player.tscn" id="3_546p8"]
-[ext_resource type="Script" uid="uid://cut4penohen0s" path="res://Scripts/finalLevel.gd" id="4_vu5tt"]
+[ext_resource type="Script" uid="uid://dgkf38cwtogfy" path="res://Scripts/level6.gd" id="4_gqpvc"]
 [ext_resource type="Texture2D" uid="uid://chi6kbsmfckpe" path="res://Win.png" id="5_cnikc"]
 [ext_resource type="PackedScene" uid="uid://bedkcro8urckr" path="res://Scenes/Wall.tscn" id="6_gqpvc"]
 
@@ -283,10 +283,11 @@ sources/0 = SubResource("TileSetAtlasSource_uhnj4")
 [node name="Level 3" type="Node2D"]
 
 [node name="Walls" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAABAP7/AAABAAEAAAAAAP7/AAABAAEAAAD///7/AAABAAEAAAD+//7/AAABAAEAAAD9//7/AAABAAEAAAD8//7/AAABAAEAAAD7//7/AAABAAEAAAD6//7/AAABAAEAAAD5//7/AAABAAEAAAD4//7/AAABAAEAAAD3//7/AAABAAEAAAD2//7/AAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAABAAEAAAABAAEAAAAAAAEAAAABAAEAAAD//wEAAAABAAEAAAD+/wEAAAABAAEAAAD9/wEAAAABAAEAAAD8/wEAAAABAAEAAAD7/wEAAAABAAEAAAD6/wEAAAABAAEAAAD5/wEAAAABAAEAAAD4/wEAAAABAAEAAAD3/wEAAAABAAEAAAD2/wEAAAABAAEAAADw//X/AAABAAEAAADx//X/AAABAAEAAADw/wgAAAABAAEAAADx/wgAAAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAABAP7/AAABAAEAAAAAAP7/AAABAAEAAAD///7/AAABAAEAAAD+//7/AAABAAEAAAD9//7/AAABAAEAAAD8//7/AAABAAEAAAD7//7/AAABAAEAAAD6//7/AAABAAEAAAD5//7/AAABAAEAAAD4//7/AAABAAEAAAD3//7/AAABAAEAAAD2//7/AAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAABAAEAAAABAAEAAAAAAAEAAAABAAEAAAD//wEAAAABAAEAAAD+/wEAAAABAAEAAAD9/wEAAAABAAEAAAD8/wEAAAABAAEAAAD7/wEAAAABAAEAAAD6/wEAAAABAAEAAAD5/wEAAAABAAEAAAD4/wEAAAABAAEAAAD3/wEAAAABAAEAAAD2/wEAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_2mgoq")
 
 [node name="Lava" type="TileMapLayer" parent="." groups=["lava"]]
+tile_map_data = PackedByteArray("AADt//f/AAABAAEAAADu//f/AAABAAEAAADv//f/AAABAAEAAADw//f/AAABAAEAAADx//f/AAABAAEAAADy//f/AAABAAEAAADz//f/AAABAAEAAAD0//f/AAABAAEAAAD1//f/AAABAAEAAAD2//f/AAABAAEAAADt/wcAAAABAAEAAADu/wcAAAABAAEAAADv/wcAAAABAAEAAADw/wcAAAABAAEAAADx/wcAAAABAAEAAADy/wcAAAABAAEAAADz/wcAAAABAAEAAAD0/wcAAAABAAEAAAD1/wcAAAABAAEAAAD2/wcAAAABAAEAAAD3/wcAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_42uki")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_546p8")]
@@ -294,7 +295,7 @@ position = Vector2(-65, -2)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-278, -12)
-script = ExtResource("4_vu5tt")
+script = ExtResource("4_gqpvc")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
@@ -305,5 +306,6 @@ texture = ExtResource("5_cnikc")
 shape = SubResource("RectangleShape2D_t7v2y")
 
 [node name="Wall" parent="." instance=ExtResource("6_gqpvc")]
+position = Vector2(-219, 2)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
