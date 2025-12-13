@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://pqw60qfgak5w"]
+[gd_scene load_steps=17 format=4 uid="uid://pqw60qfgak5w"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://test.svg" id="1_cy2qo"]
 [ext_resource type="Texture2D" uid="uid://cj0774417fca1" path="res://lava.png" id="2_vaeam"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://4pggmhtao0t0" path="res://Scenes/Enemy.tscn" id="7_vaeam"]
 [ext_resource type="Texture2D" uid="uid://c3yt8jtvvs8sq" path="res://viewblocker.png" id="8_a0bmv"]
 [ext_resource type="Script" uid="uid://iw1aex8vcpcb" path="res://Scripts/grapple.gd" id="8_ry3a7"]
+[ext_resource type="FontFile" uid="uid://q4owarjov7bi" path="res://art/Sekuya-Regular.ttf" id="10_0snvp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_055b2"]
 texture = ExtResource("1_cy2qo")
@@ -354,8 +355,10 @@ texture = ExtResource("8_a0bmv")
 [node name="Label" type="Label" parent="."]
 offset_left = 239.0
 offset_top = -115.0
-offset_right = 429.0
-offset_bottom = -66.0
+offset_right = 570.0
+offset_bottom = -70.0
+theme_override_fonts/font = ExtResource("10_0snvp")
+theme_override_font_sizes/font_size = 11
 text = "Press space to stop.
 find this block to enable!"
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://bhwl8lyksx737"]
+[gd_scene load_steps=12 format=4 uid="uid://bhwl8lyksx737"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://test.svg" id="1_6aodu"]
 [ext_resource type="Texture2D" uid="uid://cj0774417fca1" path="res://lava.png" id="2_r0nac"]
 [ext_resource type="PackedScene" uid="uid://df6fcmphjfr0m" path="res://Scenes/Player.tscn" id="3_kjfpe"]
 [ext_resource type="Script" uid="uid://b35hy3d0xo6ni" path="res://Scripts/level1.gd" id="4_kjfpe"]
 [ext_resource type="Texture2D" uid="uid://chi6kbsmfckpe" path="res://Win.png" id="4_r0nac"]
+[ext_resource type="FontFile" uid="uid://q4owarjov7bi" path="res://art/Sekuya-Regular.ttf" id="6_b2yne"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8j60k"]
 texture = ExtResource("1_6aodu")
@@ -308,6 +309,7 @@ offset_left = -52.0
 offset_top = -40.0
 offset_right = 72.0
 offset_bottom = -14.0
+theme_override_fonts/font = ExtResource("6_b2yne")
 text = "WASD to move"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

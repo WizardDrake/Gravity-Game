@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://blwlfowqfs8m2"]
+[gd_scene load_steps=15 format=4 uid="uid://blwlfowqfs8m2"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://test.svg" id="1_rybd0"]
 [ext_resource type="Texture2D" uid="uid://cj0774417fca1" path="res://lava.png" id="2_qv3nj"]
 [ext_resource type="PackedScene" uid="uid://df6fcmphjfr0m" path="res://Scenes/Player.tscn" id="3_066uc"]
 [ext_resource type="Script" uid="uid://c71aolo3w6jdp" path="res://Scripts/level9.gd" id="4_rybd0"]
 [ext_resource type="Texture2D" uid="uid://chi6kbsmfckpe" path="res://Win.png" id="5_basfb"]
+[ext_resource type="PackedScene" uid="uid://bedkcro8urckr" path="res://Scenes/Wall.tscn" id="6_rybd0"]
+[ext_resource type="Script" uid="uid://iw1aex8vcpcb" path="res://Scripts/grapple.gd" id="7_066uc"]
+[ext_resource type="Texture2D" uid="uid://c3yt8jtvvs8sq" path="res://viewblocker.png" id="7_qv3nj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_055b2"]
 texture = ExtResource("1_rybd0")
@@ -279,19 +282,24 @@ sources/0 = SubResource("TileSetAtlasSource_uhnj4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7v2y"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_066uc"]
+
 [node name="Level 3" type="Node2D"]
+position = Vector2(82, 13)
 
 [node name="Walls" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD6//3/AAABAAEAAAD5//3/AAABAAEAAAD4//3/AAABAAEAAAD3//3/AAABAAEAAAD2//3/AAABAAEAAAD1//3/AAABAAEAAAD0//3/AAABAAEAAADz//3/AAABAAEAAADy//3/AAABAAEAAADx//3/AAABAAEAAADw//3/AAABAAEAAADv//3/AAABAAEAAADu//3/AAABAAEAAADt//3/AAABAAEAAADs//3/AAABAAEAAADr//3/AAABAAEAAADq//3/AAABAAEAAADp//3/AAABAAEAAADo//3/AAABAAEAAADn//3/AAABAAEAAADm//3/AAABAAEAAADl//3/AAABAAEAAAD9//3/AAABAAEAAAD9//7/AAABAAEAAAD9////AAABAAEAAAD9/wAAAAABAAEAAAD9/wEAAAABAAEAAAD8//3/AAABAAEAAAD7//3/AAABAAEAAAD8/wEAAAABAAEAAAD7/wEAAAABAAEAAAD6/wEAAAABAAEAAAD5/wEAAAABAAEAAAD2/wEAAAABAAEAAAD1/wEAAAABAAEAAAD0/wEAAAABAAEAAADz/wEAAAABAAEAAADy/wEAAAABAAEAAADx/wEAAAABAAEAAADw/wEAAAABAAEAAADv/wEAAAABAAEAAADu/wEAAAABAAEAAADt/wEAAAABAAEAAADs/wEAAAABAAEAAADr/wEAAAABAAEAAADq/wEAAAABAAEAAADp/wEAAAABAAEAAADo/wEAAAABAAEAAADn/wEAAAABAAEAAADm/wEAAAABAAEAAADl/wEAAAABAAEAAAD3/wEAAAABAAEAAAD4/wEAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_2mgoq")
 
 [node name="Lava" type="TileMapLayer" parent="." groups=["lava"]]
+tile_map_data = PackedByteArray("AADk//z/AAABAAEAAADh//z/AAABAAEAAADi/wEAAAABAAEAAADk/wEAAAABAAEAAADj/wEAAAABAAEAAADk//n/AAABAAEAAADh//n/AAABAAEAAADi//j/AAABAAEAAADj//j/AAABAAEAAADd//n/AAABAAEAAADd//z/AAABAAEAAADa//z/AAABAAEAAADa//n/AAABAAEAAADd//X/AAABAAEAAADi//P/AAABAAEAAAA=")
 tile_set = SubResource("TileSet_42uki")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_066uc")]
-position = Vector2(-65, -2)
+position = Vector2(-82, -13)
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-65, -3)
+position = Vector2(-475, -158)
 script = ExtResource("4_rybd0")
 metadata/_edit_group_ = true
 
@@ -302,4 +310,35 @@ texture = ExtResource("5_basfb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_t7v2y")
 
+[node name="AnimatableBody2D" parent="." instance=ExtResource("6_rybd0")]
+position = Vector2(-148, -10)
+point_a = Vector2(-70, -100)
+point_b = Vector2(-70, 100)
+
+[node name="AnimatableBody2D2" parent="." instance=ExtResource("6_rybd0")]
+position = Vector2(-237, -11)
+point_a = Vector2(-150, -100)
+point_b = Vector2(-150, 100)
+
+[node name="AnimatableBody2D3" parent="." instance=ExtResource("6_rybd0")]
+position = Vector2(-354, -10)
+point_a = Vector2(-275, -100)
+point_b = Vector2(-275, 100)
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-407, -7)
+script = ExtResource("7_066uc")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+position = Vector2(0, -1.9073486e-06)
+scale = Vector2(0.15625001, 0.15624997)
+texture = ExtResource("7_qv3nj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("RectangleShape2D_066uc")
+
+[connection signal="restart" from="CharacterBody2D" to="Area2D2" method="_on_character_body_2d_restart"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="CharacterBody2D" method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
